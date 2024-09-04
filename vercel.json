@@ -13,7 +13,7 @@
       }
     ],
     "env": {
-    "VERCEL": "1",
-    "DATABASE_URL": "@database_url"
-  }
-  }
+        "VERCEL": "1",
+        "DATABASE_URL": "@database_url"
+    }
+}
