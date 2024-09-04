@@ -3,7 +3,10 @@
       {
         "src": "expense_tracker_backend/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+        "config": { 
+          "maxLambdaSize": "15mb", 
+          "runtime": "python3.9"
+        }
       }
     ],
     "routes": [
@@ -15,5 +18,10 @@
     "env": {
         "VERCEL": "1",
         "DATABASE_URL": "@database_url"
+    },
+    "build": {
+        "env": {
+            "PIP_TARGET": ".pip_target"
+        }
     }
 }
