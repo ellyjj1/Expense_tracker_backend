@@ -15,3 +15,8 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.type}: {self.description} - ${self.amount}"
+
+class TransactionTotals(models.Model):
+    total_income = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    total_expense = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    last_updated = models.DateTimeField(auto_now=True)
