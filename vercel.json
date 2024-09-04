@@ -11,5 +11,9 @@
         "src": "/(.*)",
         "dest": "expense_tracker_backend/wsgi.py"
       }
-    ]
+    ],
+    "env": {
+    "VERCEL": "1",
+    "DATABASE_URL": "@database_url"
+  }
   }
