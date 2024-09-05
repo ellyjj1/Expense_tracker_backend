@@ -74,26 +74,10 @@ else:
 IS_VERCEL = os.environ.get('VERCEL', False)
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://db_postgreSQL_expense_owner:5l7NPxsQhJjX@ep-lucky-shadow-a7de1o2q.ap-southeast-2.aws.neon.tech/db_postgreSQL_expense?sslmode=require'
+    )
 }
-
-if 'VERCEL' in os.environ:
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': getenv('PGDATABASE'),
-        'USER': getenv('PGUSER'),
-        'PASSWORD': getenv('PGPASSWORD'),
-        'HOST': getenv('PGHOST'),
-        'PORT': getenv('PGPORT', 5432),
-        'OPTIONS': {
-        'sslmode': 'require',
-        },
-    }
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -149,15 +133,10 @@ LOGGING = {
             'class': 'logging.StreamHandler',
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'WARNING',
-    },
     'loggers': {
-        'django': {
+        'django.db.backends': {
+            'level': 'DEBUG',
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-            'propagate': False,
         },
     },
 }
