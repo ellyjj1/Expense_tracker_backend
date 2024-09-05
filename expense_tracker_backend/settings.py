@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     # 'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,3 +143,11 @@ LOGGING = {
         },
     },
 }
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:3000',  # Frontend app for local development
+#     'https://expense-tracker-alpha-beige.vercel.app/',  # Your production frontend URL
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
