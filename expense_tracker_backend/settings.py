@@ -73,9 +73,11 @@ else:
 
 IS_VERCEL = os.environ.get('VERCEL', False)
 
+load_dotenv()
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://db_postgreSQL_expense_owner:5l7NPxsQhJjX@ep-lucky-shadow-a7de1o2q.ap-southeast-2.aws.neon.tech/db_postgreSQL_expense?sslmode=require'
+        default=os.getenv('DATABASE_URL')
     )
 }
 
