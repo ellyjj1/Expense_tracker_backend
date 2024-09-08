@@ -15,7 +15,7 @@ the front-end link: https://github.com/ellyjj1/Expense_tracker
    - Serializes the transaction data into JSON format for communication with the frontend.
 
 3. **PostgreSQL**:
-   - The database used for production deployment (on platforms like Heroku or Vercel).
+   - The database used for production deployment (on neon, which is free).
    - Stores all transaction data in a structured format.
 
 4. **SQLite**:
